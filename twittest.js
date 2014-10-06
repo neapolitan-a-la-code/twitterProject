@@ -1,11 +1,12 @@
 var Twit = require('twit');
+var credentials = require('./credentials.js');
 
  
 var T = new Twit({
-    consumer_key:         'aTIpG0jGl6nwp4KWhUILBQ'
-    , consumer_secret:      'cUmQNsQ6u4wn4PUcoQ9PmqzFEzVmzJmGnD2gROeY'
-    , access_token:         '44984017-EKeo9ivt957w7Y6uiT2NsCFbM1PQ46KF0c5J41egQ'
-    , access_token_secret:  'DvTKLNq0Nev4XriCRm8cdfRkz7uYtbgddjcl0amOSis'
+    consumer_key: credentials.consumer_key,
+    consumer_secret: credentials.consumer_secret,
+    access_token: credentials.access_token,
+    access_token_secret: credentials.access_token_secret
 });
 
 console.log("Reading in the last 20 tweets with search: #collectiveacademy");
