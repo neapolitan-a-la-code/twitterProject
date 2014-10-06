@@ -1,11 +1,11 @@
 var Twit = require('twit');
-<<<<<<< HEAD
+
 var Hapi = require('hapi');
 
 var toWrite = "";
-=======
+
 var credentials = require('./credentials.js');
->>>>>>> master
+
 
 var T = new Twit({
     consumer_key: credentials.consumer_key,
