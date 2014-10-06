@@ -1,6 +1,8 @@
 var Twit = require('twit');
+var Hapi = require('hapi');
 
- 
+var toWrite = "";
+
 var T = new Twit({
     consumer_key:         'aTIpG0jGl6nwp4KWhUILBQ'
     , consumer_secret:      'cUmQNsQ6u4wn4PUcoQ9PmqzFEzVmzJmGnD2gROeY'
@@ -9,19 +11,23 @@ var T = new Twit({
 });
 
 console.log("Reading in the last 20 tweets with search: #collectiveacademy");
-T.get('search/tweets', { q: 'collectiveacademy', count: 20, media: true }, function(err, reply) {
+T.get('search/tweets', { q: 'collectiveacademy', count: 50, media: true }, function(err, reply) {
     if (err) {
         console.dir(err);
     } else {
         for (var i = 0; i < reply.statuses.length; i++) {
-
               var status = reply.statuses[i];
-              console.log(status.entities.media[0].media_url);
+              toWrite += "<img src='";
+              toWrite += status.entities.media[0].media_url;
+              toWrite += "'>";
+              
+//            if (i===reply.statuses.length) toWrite += "'><";
 //            console.log('*************************');
 //            console.log('  username: ' + status.user.name);
 //            console.log('   ' + status.text);
 //            console.log('  time/date: ' + status.created_at);
 //            console.log('*************************');
         }
+      console.log(toWrite);
     }
 });
