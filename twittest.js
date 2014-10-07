@@ -2,6 +2,8 @@ var Twit = require('twit');
 
 var Hapi = require('hapi');
 
+var myModule = require('./relative-time.js');
+
 var toWrite = "";
 
 var credentials = require('./credentials.js');
@@ -18,6 +20,7 @@ console.log("Reading in the last 20 tweets with search: #collectiveacademy");
 T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, reply) {
 
 
+
     if (err) {
         console.dir(err);
     } 
@@ -28,7 +31,7 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 
               if (typeof statuses.entities.media !== 'undefined') {
               toWrite += '  username: ' + statuses.user.name;
-              toWrite += '  time/date: ' + statuses.created_at;
+              toWrite += '  time/date: ' + myModule(statuses.created_at);
               toWrite += "<br><img src='";
               toWrite += statuses.entities.media[0].media_url;
 //            console.log(.entities.media[0].media_url);
