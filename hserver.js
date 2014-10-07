@@ -1,5 +1,6 @@
 var http = require("http");
 var imagecode = "";
+var counter = 0;
 
 var options = {
   host: '127.0.0.1',
@@ -16,6 +17,9 @@ http.createServer(function(request,response){
 
     res.on("data", function(chunk) {
       imagecode = chunk;
+      counter = 1;
+      response.end(imagecode);
+      //console.log(chunk.toString);
   
     });
   }).on('error', function(e) {
@@ -23,6 +27,7 @@ http.createServer(function(request,response){
   });
 
 	response.writeHeader(200, {"Content-Type": "text/html"});
-	response.end(imagecode);
+	
+
 }).listen(7070);
 console.log("Server Running on 7070");	
