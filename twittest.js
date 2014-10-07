@@ -25,13 +25,15 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
     else {
               reply.statuses.forEach(function(statuses) {
 
+
+              if (typeof statuses.entities.media !== 'undefined') {
               toWrite += '  username: ' + statuses.user.name;
               toWrite += '  time/date: ' + statuses.created_at;
               toWrite += "<br><img src='";
               toWrite += statuses.entities.media[0].media_url;
 //            console.log(.entities.media[0].media_url);
               toWrite += "'><br>";
-              
+              }
 //            if (i===reply.statuses.length) toWrite += "'><";
 //            console.log('*************************');
 //            console.log('  username: ' + .user.name);
