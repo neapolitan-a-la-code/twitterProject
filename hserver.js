@@ -22,7 +22,7 @@ http.createServer(function(request,response){
     console.log("Got error: " + e.message);
   });
 
-	response.writeHeader(200, {"Content-Type": "text/plain"});
+	response.writeHeader(200, {"Content-Type": "text/html"});
 	response.end(imagecode);
 }).listen(7070);
 console.log("Server Running on 7070");	
