@@ -16,30 +16,37 @@ var T = new Twit({
 
 console.log("Reading in the last 20 tweets with search: #collectiveacademy");
 T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, reply) {
+
+
     if (err) {
         console.dir(err);
-    } else {
-        for (var i = 0; i < reply.statuses.length; i++) {
-              var status = reply.statuses[i];
+    } 
 
-              toWrite += '  username: ' + status.user.name;
-              toWrite += '  time/date: ' + status.created_at;
+    else {
+              reply.statuses.forEach(function(statuses) {
+
+              toWrite += '  username: ' + statuses.user.name;
+              toWrite += '  time/date: ' + statuses.created_at;
               toWrite += "<br><img src='";
-              toWrite += status.entities.media[0].media_url;
-//            console.log(status.entities.media[0].media_url);
+              toWrite += statuses.entities.media[0].media_url;
+//            console.log(.entities.media[0].media_url);
               toWrite += "'><br>";
               
 //            if (i===reply.statuses.length) toWrite += "'><";
 //            console.log('*************************');
-//            console.log('  username: ' + status.user.name);
-//            console.log('   ' + status.text);
-//            console.log('  time/date: ' + status.created_at);
+//            console.log('  username: ' + .user.name);
+//            console.log('   ' + .text);
+//            console.log('  time/date: ' + .created_at);
 //            console.log('*************************');
-//            console.log(status);
+//            console.log();
           
-        }
+
+              })
+
+              
+    
 //
-    }
+    } 
 });
 
 
