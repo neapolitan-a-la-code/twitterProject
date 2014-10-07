@@ -1,8 +1,7 @@
 var Twit = require('twit');
-var Hapi = require('hapi');
-var toWrite = "";
+var http = require("http");
 var credentials = require('./credentials.js');
-
+var toWrite = "";
 
 var T = new Twit({
     consumer_key: credentials.consumer_key,
@@ -10,7 +9,6 @@ var T = new Twit({
     access_token: credentials.access_token,
     access_token_secret: credentials.access_token_secret
 });
-
 
 T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, reply) {
 
@@ -39,18 +37,11 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 });
     
 
-var server = Hapi.createServer('localhost', Number(process.argv[2]) || 8080);
-
-server.route({path: '/', method:'GET', handler: function handler(request, reply) {
 
 
-    reply.end(toWrite);
-
-
-//  reply("<html><head><title>"+ "Sup"+"</title><body>" + toWrite + "</body></html>");
-   }
-
-});
-
-server.start();
-console.log("Node server up at " + server.info.uri + ", searching: #collectiveacademy");
+http.createServer(function(request,response){
+	console.log("I got kicked");
+	response.writeHeader(200, {"Content-Type": "text/plain"});
+	response.end(toWrite);
+}).listen(8080);
+console.log("Server Running on 8080");	
