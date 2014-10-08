@@ -31,3 +31,39 @@ http.createServer(function(request,response){
 
 }).listen(7070);
 console.log("Server Running on 7070");	
+
+
+/*
+
+//code below will parse JSON and skip tweets w/o pics
+
+T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, reply) {
+
+
+    if (err) {
+        console.dir(err);
+    } 
+
+    else {
+
+      
+              reply.statuses.forEach(function(statuses) {
+
+              if (typeof statuses.entities.media !== 'undefined') {
+
+              toWrite += '  username: ' + statuses.user.name;
+              toWrite += '  time/date: ' + statuses.created_at;
+              toWrite += "<br><img src='";
+              toWrite += statuses.entities.media[0].media_url;
+              toWrite += "'><br>"; 
+              }
+              
+
+              })
+              //console.log(toWrite);
+
+              
+    
+//
+    }
+    */
