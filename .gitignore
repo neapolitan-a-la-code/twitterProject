@@ -3,3 +3,4 @@ credentials.js
 
 # directories to ignore
 node_modules/
+heroku/
