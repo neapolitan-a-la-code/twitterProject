@@ -22,14 +22,9 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 
 
               toWrite = reply;
-              console.log(toWrite);
-
-              }
-              //console.log(toWrite);
-
               
-    
-//
+              }
+              
         complete = 1;
     });
 

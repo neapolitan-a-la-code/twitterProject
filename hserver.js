@@ -1,12 +1,36 @@
 var http = require("http");
-var imagecode = "";
+var twdata = "";
 var counter = 0;
 
+
 var options = {
+  //where to look for data
   host: '127.0.0.1',
   port: 8080,
   path: '/'
 };
+
+function massageData(twstring) {
+
+var toWrite = "";
+  twstring = JSON.parse(twstring);
+
+              twstring.statuses.forEach(function(statuses) {
+
+              if (typeof statuses.entities.media !== 'undefined') {
+
+              toWrite += '  username: ' + statuses.user.name;
+              toWrite += '  time/date: ' + statuses.created_at;
+              toWrite += "<br><img src='";
+              toWrite += statuses.entities.media[0].media_url;
+              toWrite += "'><br>";
+              }
+            }
+      )
+
+return toWrite;
+}
+
 
 http.createServer(function(request,response){
 	console.log("I got kicked");
@@ -16,9 +40,10 @@ http.createServer(function(request,response){
 //    console.log("Got response: " + res.statusCode);
 
     res.on("data", function(chunk) {
-      imagecode = chunk;
+      twdata = chunk;
+
       counter = 1;
-      response.end(imagecode);
+      response.end(massageData(twdata));
       //console.log(chunk.toString);
   
     });
@@ -30,7 +55,7 @@ http.createServer(function(request,response){
 	
 
 }).listen(7070);
-console.log("Server Running on 7070");	
+console.log("Server Running on 7070");
 
 
 /*
@@ -42,7 +67,7 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 
     if (err) {
         console.dir(err);
-    } 
+    }
 
     else {
 
@@ -55,7 +80,7 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
               toWrite += '  time/date: ' + statuses.created_at;
               toWrite += "<br><img src='";
               toWrite += statuses.entities.media[0].media_url;
-              toWrite += "'><br>"; 
+              toWrite += "'><br>";
               }
               
 
