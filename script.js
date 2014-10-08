@@ -25,18 +25,16 @@ $(document).ready(function() {
     toWrite = ""; 
     twstring.statuses.forEach(function(statuses) {
       if (typeof statuses.entities.media !== 'undefined') {
-        toWrite += '  username: ' + statuses.user.name;
-        toWrite += '  time/date: ' + statuses.created_at;
-        toWrite += "<br><img src='";
-        toWrite += statuses.entities.media[0].media_url;
-        toWrite += "'><br>";
+        toWrite += "<div class='row'><div class='col-md-4 col-sm-6 col-xs-12 thumb'><a class='thumbnail' href='#'><img class = 'img-responsive' src='" +
+          statuses.entities.media[0].media_url + "'>" +
+          'username:' + statuses.user.name +
+          '  time/date: ' + statuses.created_at +
+          "</a></div></div>";
       }
     });
 
     $("#content").append(
-      "<div class='row'><div class='col-md-4 col-sm-6 col-xs-12'><div class='thumbnail'>" + 
-        toWrite +
-      "</div></div></div>"
+      toWrite
     );
   }
 
