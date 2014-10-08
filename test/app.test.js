@@ -1,10 +1,10 @@
-var twittest = require("../twittest.js");
-console.log(twittest);
+var tserver = require("../tserver2.js");
+var hserver = require("../hserver.js")
 var request = require('supertest');
 request = request('http://neapolitan-a-la-code.github.io/blog/');
 var expect = require("chai").expect;
 
-
+/*
 
 describe("When a user goes to the home page", function() {
 
@@ -21,6 +21,10 @@ describe("When a user goes to the home page", function() {
 });
 
 
+*/
+console.log("Hello,", tserver)
+
+/*
 describe ("When User goes to twitter post page", function () {
 
 	it("user should see twitter feed", function (done) {
@@ -34,12 +38,35 @@ describe ("When User goes to twitter post page", function () {
 	})
 
 });
-/*
+*/
+
+describe )"When user sees feed", function () {
+
+	it ("user should see tweeted images", function (done) {
+		expect()
+	})
+
+});
+
+
+
 describe ("When website loads", function () {
 
-	it("")
-})
-*/
+	it("read the credentials for the Twitter Account", function (done) {
+		//request.get('/')
+			expect(tserver.T).to.exist;
+			done()
+	});
+
+
+	it("feed should contain tweets", function (done) {
+		//request.get('/')
+			expect(tserver.I).to.exist;
+			done()
+	})
+
+});
+
 
 
 
