@@ -33,8 +33,10 @@ $(document).ready(function() {
       }
     });
 
-    $("#content div").append(
-      "<div class='tab-pane' id=" + toWrite +"></div>"
+    $("#content").append(
+      "<div class='row'><div class='col-md-4 col-sm-6 col-xs-12'><div class='thumbnail'>" + 
+        toWrite +
+      "</div></div></div>"
     );
   }
 
