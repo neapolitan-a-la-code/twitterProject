@@ -37,16 +37,20 @@ http.createServer(function(request,response){
 
 
   http.get(options, function(res) {
+    twdata = "";
 //    console.log("Got response: " + res.statusCode);
 
     res.on("data", function(chunk) {
-      twdata = chunk;
-
-      counter = 1;
-      response.end(massageData(twdata));
-      //console.log(chunk.toString);
+      twdata += chunk;
   
     });
+
+   res.on("end", function() {
+        //twdata += chunk;
+        response.end(massageData(twdata));
+    
+      });
+
   }).on('error', function(e) {
     console.log("Got error: " + e.message);
   });

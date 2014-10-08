@@ -34,8 +34,8 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 
 http.createServer(function(request,response){
 	console.log("I got kicked");
-	response.writeHeader(200, {"Content-Type": "application/json"});
-
+	response.writeHeader(200, {"Content-Type": "text/plain"});
+/*
   var readyToWrite = function() {
       if (complete === 1) {
         console.log("READY");
@@ -45,7 +45,7 @@ http.createServer(function(request,response){
         readyToWrite();
     };
   readyToWrite();
-
+*/
 	response.end(JSON.stringify(toWrite));
 }).listen(8080);
 console.log("Server Running on 8080");
