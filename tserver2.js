@@ -1,5 +1,5 @@
 var Twit = require('twit');
-var http = require("http");
+var http = require('http');
 var credentials = require('./credentials.js');
 var toWrite = "";
 var complete = 0;
@@ -16,48 +16,36 @@ T.get('search/tweets', { q: 'collectiveacademy', count: 20 }, function(err, repl
 
     if (err) {
         console.dir(err);
-    } 
+    }
 
     else {
-              reply.statuses.forEach(function(statuses) {
 
-              if (typeof statuses.entities.media !== 'undefined') {
 
-              toWrite += '  username: ' + statuses.user.name;
-              toWrite += '  time/date: ' + statuses.created_at;
-              toWrite += "<br><img src='";
-              toWrite += statuses.entities.media[0].media_url;
-              toWrite += "'><br>"; 
+              toWrite = reply;
+              
               }
               
+        complete = 1;
+    });
 
-              })
-              //console.log(toWrite);
-
-              
-    
-//
-    } 
-
-complete = 1
-});
     
 
 
 
 http.createServer(function(request,response){
 	console.log("I got kicked");
-	response.writeHeader(200, {"Content-Type": "text/plain"});
+	response.writeHeader(200, {"Content-Type": "application/json"});
 
   var readyToWrite = function() {
       if (complete === 1) {
-        console.log("READY")
+        console.log("READY");
         return;
-      } 
-        console.log("not ready : (")
+      }
+        console.log("not ready : (");
         readyToWrite();
-    }
+    };
   readyToWrite();
-	response.end(toWrite);
+
+	response.end(JSON.stringify(toWrite));
 }).listen(8080);
-console.log("Server Running on 8080");	
+console.log("Server Running on 8080");
