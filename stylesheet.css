@@ -1,3 +1,9 @@
 #headerbox #pic{
 	background-color: #28a9e2;
 }
+
+#content img{
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+}
