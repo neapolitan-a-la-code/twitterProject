@@ -29,8 +29,8 @@ $(document).ready(function() {
           "<div id='outer'><img class = 'img-responsive' src='" +
           statuses.entities.media[0].media_url + "'></div>" +
           "<div class='caption'>" +
-          "<h4>" + statuses.user.name + "</h4>" +
           "<p>" + statuses.created_at + "</p>" +
+          "<h4>" + statuses.user.name + "</h4>" +
           "</div></div></div>";
       }
     });

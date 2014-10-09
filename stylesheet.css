@@ -5,36 +5,28 @@
 }
 
 #content h4 {
-	font-family: "Brush Script MT", cursive, san-serif;
+	font-family:'Bad Script', cursive, san-serif;
 	font-weight: bold;
 	text-align: center;
-	font-size: 200%;
+	font-size: 150%;
 	color: #424242;
-	line-height: 1;
 }
 
 #content p {
-	font-family: ‘American Typewriter’, ‘Courier New’, Courier, Monaco, mono;
+	font-family: 'Special Elite', ‘Courier New’, Courier, Monaco, san-serif;
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
 	font-size: 80%;
 	color: #BDBDBD;
-	line-height: 1;
 }
 
 #content .thumbnail {
-	-webkit-box-shadow: 13px 11px 6px 0px rgba(50, 50, 50, 0.7);
-	-moz-box-shadow:    13px 11px 6px 0px rgba(50, 50, 50, 0.7);
-	box-shadow:         13px 11px 6px 0px rgba(50, 50, 50, 0.7);
+	box-shadow: 13px 11px 6px 0px rgba(50, 50, 50, 0.7);
 }
 
 #content .thumbnail:hover {
-	-webkit-transform: scale(1.1) rotate(3deg);
-	-ms-transform: scale(1.1) rotate(3deg);
 	transform: scale(1.1) rotate(3deg);
-	-webkit-box-shadow: 18px 15px 6px 0px rgba(50, 50, 50, 0.7);
-	-moz-box-shadow:    18px 15px 6px 0px rgba(50, 50, 50, 0.7);
-	box-shadow:         18px 15px 6px 0px rgba(50, 50, 50, 0.7);
+	box-shadow: 18px 15px 6px 0px rgba(50, 50, 50, 0.7);
 }
 
 #content .caption {
@@ -42,13 +34,22 @@
 	padding: 0px;
 }
 
+.thumbnail {
+	padding: 15px 15px 0px 15px;
+}
 
+.thumbnail #outer {
+	position:relative;
+    padding-bottom:100%;
+    margin: auto;
+    overflow:hidden;
+}
 
-
-
-
-#content .thumbnail // all words and image in here
-#content #outer //outer div for image
-#content img //just the image
-
-
+.thumbnail img {
+	position:absolute;
+	left: -9999px;
+	top: -9999px;
+	right: -9999px;
+	bottom: -9999px;
+	margin: auto;
+}
