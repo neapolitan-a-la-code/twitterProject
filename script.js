@@ -24,13 +24,17 @@ $(document).ready(function() {
   function massageData(twstring) {
     twstring.statuses.forEach(function(statuses) {
       if (typeof statuses.entities.media !== 'undefined') {
-        toWrite += "<div class='col-md-4 col-sm-6 col-xs-12 thumb'><a class='thumbnail' href='#'><img class = 'img-responsive' src='" +
-          statuses.entities.media[0].media_url + "'>" +
-          'username:' + statuses.user.name +
-          '  time/date: ' + statuses.created_at +
-          "</a></div>";
+        toWrite += "<div class='col-md-4 col-sm-6 col-xs-12'>" + 
+          "<div class='thumbnail'>" + 
+          "<div id='outer'><img class = 'img-responsive' src='" +
+          statuses.entities.media[0].media_url + "'></div>" +
+          "<div class='caption'>" +
+          "<h4>" + statuses.user.name + "</h4>" +
+          "<p>" + statuses.created_at + "</p>" +
+          "</div></div></div>";
       }
     });
+
 
     $("#content").append(
       toWrite
