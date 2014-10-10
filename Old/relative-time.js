@@ -4,7 +4,7 @@
       * @return {string} relative time like "2 minutes ago"
       */
 
-module.exports = function(dateString) {
+rtime = function(dateString) {
         var rightNow = new Date();
         var then = new Date(dateString);
 
