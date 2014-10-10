@@ -1,7 +1,7 @@
-#headerbox #pic {
+#headerbox #pic img {
 	background-color: #28a9e2;
-	border-radius: 15px;
-	margin: 15px 15px 15px 15px;
+	border-radius: 10px;
+	margin-top: 10px;
 }
 
 #content h4 {
@@ -25,8 +25,8 @@
 }
 
 #content .thumbnail:hover {
-	transform: scale(1.1) rotate(3deg);
-	box-shadow: 18px 15px 6px 0px rgba(50, 50, 50, 0.7);
+	transform: scale(1.10);
+	box-shadow: 19px 16px 6px 0px rgba(50, 50, 50, 0.7);
 }
 
 #content .caption {
